@@ -1,6 +1,6 @@
 package blockch;
 import java.util.Date;
-
+// In this code I implemented proof of work  
 public class Block {
 	public String hash;
 	public String previousHash;
@@ -18,7 +18,8 @@ public class Block {
 	public String calculateHash() {
 		String calculatedhash = Crypt.sha256(previousHash + Long.toString(timeStamp)+Integer.toString(nonce) + data);
 		return calculatedhash;
-	}
+	} 
+	// minning blocks process 
 	public String mineBlock(int prefix) {
 		String prefixString = new String(new char[prefix]).replace('\0', '0');
 		while (!hash.substring(0, prefix).equals(prefixString)) {
